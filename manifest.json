@@ -1,6 +1,6 @@
 {
-    "name": "Minha PWA",
-    "short_name": "MinhaPWA",
+    "name": "Minha Cauculadora-S",
+    "short_name": "MinhaCauculadoraS",
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#ffffff",
