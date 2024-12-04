@@ -3,14 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha PWA</title>
+    <title>Calculadora</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <h1>Bem vindo a minha primeira PWA</h1>
-    <h4>Desensolvida por: Suziane</h4>
-    <p>Este é um exemplo de parágrafo.</p>
-    <script src="app.js"></script>
+    <h2>Calculadora</h2>
+    <div>
+        <form action="" id="calculadora">
+            <label for="numero1">Primeiro Número</label><br>
+            <input type="number" id="numero1"><br><br>
+            <label for="numero2">Segundo Número</label><br>
+            <input type="number" id="numero2"><br><br>
+            <label for="result">Resultado:</label><br>
+            <input type="text" id="result" readonly><br><br>
+            <div id="botoes">
+                <button type="button" onclick="calculadora('somar')" id="SOM">SOMAR</button><br><br>
+                <button type="button" onclick="calculadora('subtrair')" id="SUB">SUBTRAIR</button><br><br>
+                <button type="button" onclick="calculadora('multiplicar')" id="MULT">MULTIPLICAR</button><br><br>
+                <button type="button" onclick="calculadora('dividir')" id="DIV">DIVIDIR</button><br><br>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        function calculadora(operacao) {
+            const num1 = parseFloat(document.getElementById("numero1").value);
+            const num2 = parseFloat(document.getElementById("numero2").value);
+            let result;
+
+            switch (operacao) {
+                case 'somar':
+                    result = num1 + num2;
+                    break;
+                case 'subtrair':
+                    result = num1 - num2;
+                    break;
+                case 'multiplicar':
+                    result = num1 * num2;
+                    break;
+                case 'dividir':
+                    if (num2 === 0) {
+                        alert(`Não é possível dividir ${num1} por 0`);
+                        return;
+                    }
+                    if (num1 === 0) {
+                        alert(`Não é possível dividir 0 por ${num2}`);
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    alert("Operação inválida.");
+                    return;
+            }
+
+            document.getElementById("result").value = result;
+        }
+    </script>
 </body>
 </html>
